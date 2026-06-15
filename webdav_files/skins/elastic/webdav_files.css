@@ -1,0 +1,315 @@
+/**
+ * WebDAV / Nextcloud files plugin - styles for the Elastic skin
+ */
+
+/* ============================================================
+ * Toolbar button icons
+ * ============================================================ */
+
+/* "Attach from Nextcloud" - paperclip like the native attach button,
+ * but with an @ badge in the upper-right corner instead of the + badge. */
+a.webdav-files.attach-cloud:before {
+    content: "";
+    display: inline-block;
+    width: 1.3em;
+    height: 1.3em;
+    vertical-align: middle;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14.5 6.5l-7 7a2.5 2.5 0 003.5 3.5l7.2-7.2a4 4 0 10-5.7-5.7L4.6 11.5a5.6 5.6 0 008 8l5-5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cg%3E%3Ccircle cx='18.5' cy='5.5' r='5' fill='black'/%3E%3Ctext x='18.5' y='8.4' font-size='8' font-family='Arial,Helvetica,sans-serif' text-anchor='middle' fill='white'%3E@%3C/text%3E%3C/g%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14.5 6.5l-7 7a2.5 2.5 0 003.5 3.5l7.2-7.2a4 4 0 10-5.7-5.7L4.6 11.5a5.6 5.6 0 008 8l5-5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cg%3E%3Ccircle cx='18.5' cy='5.5' r='5' fill='black'/%3E%3Ctext x='18.5' y='8.4' font-size='8' font-family='Arial,Helvetica,sans-serif' text-anchor='middle' fill='white'%3E@%3C/text%3E%3C/g%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/* Cloud-with-upload-arrow icon, shared by the PDF and save-attachments
+ * buttons in toolbars, the message view, and the right-click / popup menu.
+ * Qualified with the Elastic menu containers and forced with !important so
+ * it wins over Elastic's own icon-font :before rules. */
+a.webdav-files.save-pdf:before,
+a.webdav-files.save-attachments:before,
+.webdav-files.save-pdf > .inner:before,
+.webdav-files.save-attachments > .inner:before,
+.toolbarmenu a.webdav-files.save-pdf:before,
+.toolbarmenu a.webdav-files.save-attachments:before,
+.toolbarmenu li > a.webdav-files.save-pdf:before,
+.toolbarmenu li > a.webdav-files.save-attachments:before,
+ul.menu a.webdav-files.save-pdf:before,
+ul.menu a.webdav-files.save-attachments:before,
+.contextmenu a.webdav-files.save-pdf:before,
+.contextmenu a.webdav-files.save-attachments:before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 1.2em;
+    height: 1.2em;
+    margin-inline-end: 0.5em;
+    vertical-align: -0.2em;
+    background-color: currentColor !important;
+    font-family: inherit !important;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 18a4 4 0 01-.4-7.98 5.5 5.5 0 0110.7-1.3A4.2 4.2 0 0117.5 18H7z' fill='none' stroke='black' stroke-width='1.6' stroke-linejoin='round'/%3E%3Cpath d='M12 16.5V9.5M12 9.5l-2.3 2.3M12 9.5l2.3 2.3' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 18a4 4 0 01-.4-7.98 5.5 5.5 0 0110.7-1.3A4.2 4.2 0 0117.5 18H7z' fill='none' stroke='black' stroke-width='1.6' stroke-linejoin='round'/%3E%3Cpath d='M12 16.5V9.5M12 9.5l-2.3 2.3M12 9.5l2.3 2.3' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain !important;
+}
+
+/* the top-right PDF button shows the icon only (no margin) */
+a.button.webdav-files.save-pdf:before {
+    margin-inline-end: 0 !important;
+    width: 1.3em;
+    height: 1.3em;
+    vertical-align: middle;
+}
+
+/* ============================================================
+ * File browser dialog
+ * ============================================================ */
+
+.wdf-browser {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 360px;
+}
+
+.wdf-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border, #ddd);
+    margin-bottom: 0.5rem;
+}
+
+.wdf-breadcrumb {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.95em;
+}
+
+.wdf-breadcrumb a {
+    text-decoration: none;
+    color: var(--color-link, #1a73e8);
+}
+.wdf-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.wdf-newfolder {
+    flex: 0 0 auto;
+    cursor: pointer;
+}
+
+.wdf-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid var(--color-border, #ddd);
+    border-radius: 4px;
+}
+
+.wdf-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-border-light, #f0f0f0);
+}
+.wdf-item:hover {
+    background: var(--color-list-selected-background, rgba(0, 0, 0, 0.04));
+}
+.wdf-item.selected {
+    background: var(--color-primary, #2376b7);
+    color: #fff;
+}
+
+.wdf-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wdf-meta {
+    flex: 0 0 auto;
+    font-size: 0.85em;
+    opacity: 0.75;
+}
+
+.wdf-icon {
+    flex: 0 0 1.2em;
+    width: 1.2em;
+    height: 1.2em;
+    display: inline-block;
+    background-color: #5a6b7b;
+    opacity: 0.9;
+}
+.wdf-item.selected .wdf-icon {
+    background-color: #fff;
+}
+.wdf-folder .wdf-icon,
+.wdf-folder-up .wdf-icon {
+    background-color: #e6a817;
+}
+.wdf-item.selected.wdf-folder .wdf-icon,
+.wdf-item.selected.wdf-folder-up .wdf-icon {
+    background-color: #fff;
+}
+.wdf-folder .wdf-icon {
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 6a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2z'/%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 6a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2z'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+.wdf-folder-up .wdf-icon {
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 5l-7 7 7 7v-4h9V9h-9z'/%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 5l-7 7 7 7v-4h9V9h-9z'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+.wdf-file .wdf-icon {
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 2h8l4 4v16H6z' fill='none' stroke='black' stroke-width='1.6'/%3E%3Cpath d='M14 2v4h4' fill='none' stroke='black' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 2h8l4 4v16H6z' fill='none' stroke='black' stroke-width='1.6'/%3E%3Cpath d='M14 2v4h4' fill='none' stroke='black' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+.wdf-loading,
+.wdf-empty {
+    padding: 1rem;
+    text-align: center;
+    opacity: 0.7;
+}
+
+/* ============================================================
+ * Save dialogs (attachments / pdf)
+ * ============================================================ */
+
+.wdf-save-dialog .form-group {
+    margin-bottom: 0.85rem;
+}
+.wdf-save-dialog label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.wdf-checklist {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+    max-height: 220px;
+    overflow-y: auto;
+    border: 1px solid var(--color-border, #ddd);
+    border-radius: 4px;
+}
+.wdf-checklist li {
+    padding: 0.35rem 0.6rem;
+    border-bottom: 1px solid var(--color-border-light, #f0f0f0);
+}
+.wdf-checklist label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: normal;
+    margin: 0;
+    cursor: pointer;
+}
+.wdf-checklist .wdf-name {
+    flex: 1;
+}
+
+.wdf-folder-row {
+    display: flex;
+    gap: 0.5rem;
+}
+.wdf-folder-input {
+    flex: 1;
+}
+.wdf-browse {
+    flex: 0 0 auto;
+    cursor: pointer;
+}
+
+/* ============================================================
+ * Settings
+ * ============================================================ */
+
+.wdf-hint {
+    display: block;
+    font-size: 90%;
+    opacity: 0.75;
+    margin-top: 0.25rem;
+    max-width: 38em;
+}
+.wdf-browse-folder {
+    margin-inline-start: 0.4rem;
+}
+
+.wdf-folder-hint {
+    margin: 0 0 0.5rem;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+/* inline buttons injected into the attachment areas */
+a.button.webdav-files.wdf-attach-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    margin: 0.4em 0.4em 0 0;
+    padding: 0.35em 0.7em;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid var(--color-border, #d6d6d6);
+    color: var(--color-link, #2376b7);
+    text-decoration: none;
+    white-space: nowrap;
+}
+a.button.webdav-files.wdf-attach-inline:hover {
+    background: var(--color-list-selected-background, rgba(0, 0, 0, 0.04));
+}
+
+/* "save attachments to cloud" - a real button below the attachment list,
+ * deliberately NOT in the link/blue color */
+a.button.webdav-files.save-attachments.wdf-save-attachments-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    margin: 0.6em 0 0.2em;
+    padding: 0.4em 0.8em;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid var(--color-border, #d6d6d6);
+    background: var(--color-input-background, #fff);
+    color: var(--color-font, #36393b);
+    text-decoration: none;
+    white-space: nowrap;
+}
+a.button.webdav-files.save-attachments.wdf-save-attachments-inline:hover {
+    background: var(--color-list-selected-background, rgba(0, 0, 0, 0.05));
+    text-decoration: none;
+}
+
+/* ============================================================
+ * Settings section icon
+ * Elastic renders the sections list as a table (#sections-table) whose rows
+ * carry the section id as a class and id (rcmrow{id}). We must out-specify
+ * Elastic's own icon-font :before rules, hence the ID qualifiers + !important.
+ * ============================================================ */
+#sections-table tr.webdav_files td.section:before,
+#sections-table tr#rcmrowwebdav_files td.section:before,
+table.listing tr.webdav_files td.section:before,
+.listing tr.webdav_files td:first-child:before,
+.listing li.webdav_files > a:before,
+#settings-menu li.webdav_files > a:before,
+ul.listing li.webdav_files a:before,
+tr.wdf-section-icon td.section:before,
+tr.wdf-section-icon td:first-child:before,
+li.wdf-section-icon > a:before,
+li.wdf-section-icon a:before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 1.2em !important;
+    height: 1.2em !important;
+    margin-inline-end: 0.5em;
+    vertical-align: -0.2em;
+    background-color: currentColor !important;
+    font-family: inherit !important;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 18a4 4 0 01-.4-7.98 5.5 5.5 0 0110.7-1.3A4.2 4.2 0 0117.5 18H7z'/%3E%3C/svg%3E") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 18a4 4 0 01-.4-7.98 5.5 5.5 0 0110.7-1.3A4.2 4.2 0 0117.5 18H7z'/%3E%3C/svg%3E") no-repeat center / contain !important;
+}

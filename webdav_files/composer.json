@@ -1,0 +1,28 @@
+{
+    "name": "custom/webdav_files",
+    "type": "roundcube-plugin",
+    "description": "Attach/link files from Nextcloud (or any WebDAV server) to messages, and save attachments or a PDF print of e-mails back to Nextcloud. Per-account, encrypted credentials.",
+    "keywords": ["nextcloud", "webdav", "attachments", "pdf", "files", "mail"],
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Sebastian Fischer",
+            "email": "post@scriptometer.de",
+            "role": "Developer"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://plugins.roundcube.net/"
+        }
+    ],
+    "require": {
+        "php": ">=7.3",
+        "ext-curl": "*",
+        "ext-dom": "*",
+        "roundcube/plugin-installer": ">=0.1.3"
+    },
+    "minimum-stability": "dev"
+}

@@ -1,0 +1,195 @@
+/**
+ * WebDAV / Nextcloud files plugin - styles for the Larry skin
+ */
+
+/* toolbar icons */
+.toolbar a.button.webdav-files.attach-cloud {
+    background-image: url("cloudspeicher.svg");
+    background-repeat: no-repeat;
+    background-position: center 4px;
+    background-size: 24px 24px;
+}
+
+.toolbar a.button.webdav-files.save-pdf {
+    background-image: url("cloudspeicher.svg");
+    background-repeat: no-repeat;
+    background-position: center 4px;
+    background-size: 24px 24px;
+}
+
+/* "save attachments" plain button next to the attachment list */
+a.button.webdav-files.save-attachments {
+    display: inline-block;
+    padding: 2px 6px;
+    cursor: pointer;
+}
+
+/* file browser */
+.wdf-browser {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 340px;
+}
+.wdf-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 8px;
+}
+.wdf-breadcrumb {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.wdf-breadcrumb a { color: ##525252; text-decoration: none; }
+.wdf-breadcrumb a:hover { text-decoration: underline; }
+.wdf-newfolder { cursor: pointer; }
+
+.wdf-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+.wdf-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+.wdf-item:hover { background: #f2f2f2; }
+.wdf-item.selected { background: #2376b7; color: #fff; }
+.wdf-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wdf-meta { font-size: 85%; color: #888; }
+.wdf-item.selected .wdf-meta { color: #e0e0e0; }
+.wdf-icon { flex: 0 0 18px; width: 18px; height: 18px; display: inline-block; background-color: #5a6b7b; }
+.wdf-item.selected .wdf-icon { background-color: #fff; }
+.wdf-folder .wdf-icon, .wdf-folder-up .wdf-icon { background-color: #e8b339; }
+.wdf-item.selected.wdf-folder .wdf-icon, .wdf-item.selected.wdf-folder-up .wdf-icon { background-color: #fff; }
+.wdf-folder .wdf-icon {
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 6a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2z'/%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 6a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2z'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+.wdf-folder-up .wdf-icon {
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 5l-7 7 7 7v-4h9V9h-9z'/%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 5l-7 7 7 7v-4h9V9h-9z'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+.wdf-file .wdf-icon {
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 2h8l4 4v16H6z' fill='none' stroke='black' stroke-width='1.6'/%3E%3Cpath d='M14 2v4h4' fill='none' stroke='black' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 2h8l4 4v16H6z' fill='none' stroke='black' stroke-width='1.6'/%3E%3Cpath d='M14 2v4h4' fill='none' stroke='black' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+a.button.webdav-files.wdf-attach-inline, a.button.webdav-files.wdf-save-attachments-inline {
+    display:block; margin: 6px auto; width: fit-content; padding:3px 5px 4px 5px; cursor: pointer;
+    border: 1px solid #ccc; border-radius: 4px; color: #525252; text-decoration: none; text-align: center;
+}
+.wdf-loading, .wdf-empty { padding: 16px; text-align: center; color: #888; }
+
+/* save dialogs */
+.wdf-checklist {
+    list-style: none; margin: 0 0 12px; padding: 0;
+    max-height: 200px; overflow-y: auto; border: 1px solid #ccc;
+}
+.wdf-checklist li { padding: 5px 10px; border-bottom: 1px solid #eee; }
+.wdf-checklist label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.wdf-checklist .wdf-name { flex: 1; }
+.wdf-folder-row { display: flex; gap: 8px; }
+.wdf-folder-input { flex: 1; }
+.wdf-browse { cursor: pointer; }
+
+/* settings */
+.wdf-hint { display: block; font-size: 90%; color: #666; margin-top: 4px; max-width: 38em; }
+
+/* Icons for context menus (right-click) */
+.popupmenu a.webdav-files,
+#messagecontextmenu a.webdav-files,
+.listmenu a.webdav-files,
+.messagemenu a.webdav-files {
+    padding-left: 26px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z' fill='%23ffffff'/%3E%3C/svg%3E") no-repeat 6px center;
+    background-size: 18px 18px;
+}
+
+/* Icon for settings section */
+.wdf-section-icon > a:before,
+#rcmrowwebdav_files > a:before,
+tr.webdav_files > a:before,
+li.webdav-files > a:before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+    background: url("cloudspeicher.svg") no-repeat center;
+    background-size: 18px 18px;
+}
+
+/* icon for settings-section */
+#sections-table tbody #rcmrowwebdav_files td.section {
+	background-image: url("cloudspeicher_24.png");
+	background-position: 6px 6px;
+}
+
+/* Folder picker button */
+input.wdf-folder-picker {
+    background-image: url("cloudspeicher.svg");
+    background-repeat: no-repeat;
+    background-position: right 4px center;
+    background-size: 16px 16px;
+    padding-right: 24px;
+}
+/* Folder input field */
+input.wdf-folder-input {
+    background-image: url("cloudspeicher.svg");
+    background-repeat: no-repeat;
+    background-position: right 4px center;
+    background-size: 16px 16px;
+    padding-right: 24px;
+}
+/* Make folder input more visually distinct */
+.wdf-folder-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+input.wdf-folder-input {
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 6px;
+}
+
+input.wdf-folder-input:focus {
+    border-color: #2376b7;
+    box-shadow: 0 0 0 2px rgba(35, 118, 183, 0.2);
+    outline: none;
+}/* Filename input field in attachment save dialog */
+.wdf-filename-container {
+    margin-top: 4px;
+    margin-left: 24px; /* Align with checkbox */
+}
+
+.wdf-filename-input {
+    width: 100%;
+    padding: 4px 6px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 90%;
+}
+
+.wdf-filename-input:focus {
+    border-color: #2376b7;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(35, 118, 183, 0.2);
+}

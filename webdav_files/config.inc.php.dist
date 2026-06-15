@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * Konfiguration für das WebDAV / Nextcloud Files Plugin
+ *
+ * Diese Datei nach "config.inc.php" kopieren und bei Bedarf anpassen:
+ *   cp config.inc.php.dist config.inc.php
+ *
+ * Die Zugangsdaten (Server, Benutzer, App-Passwort) werden pro
+ * Benutzer/Mailaccount in den Roundcube-Einstellungen unter
+ * "Nextcloud / WebDAV" hinterlegt. Das Passwort wird dabei – wie das
+ * Mail-Passwort – mit dem Roundcube-DES-Schlüssel verschlüsselt gespeichert.
+ *
+ * Die Werte hier dienen als serverweite Vorgaben/Fallbacks.
+ */
+
+// Standard-Servertyp: 'nextcloud' oder 'webdav'
+$config['webdav_files_type'] = 'nextcloud';
+
+// Optionale serverweite Vorgabe-URL (Benutzer können sie überschreiben).
+// Für Nextcloud reicht die Basis-URL, der WebDAV-Pfad wird automatisch
+// ergänzt: https://cloud.example.com
+$config['webdav_files_url'] = '';
+
+// SSL-Zertifikat prüfen. Nur für selbstsignierte Zertifikate auf false setzen!
+$config['webdav_files_verify_ssl'] = true;
+
+// Timeout für WebDAV-Anfragen in Sekunden (Up-/Downloads)
+$config['webdav_files_timeout'] = 90;
+
+// Maximale Größe einer aus der Cloud angehängten Datei in Bytes.
+// 0 = das normale Roundcube-/PHP-Upload-Limit verwenden.
+$config['webdav_files_max_attach_size'] = 0;
+
+// Standard-Zielordner in der Cloud für gespeicherte Anhänge
+$config['webdav_files_attach_folder'] = '/Mail/Attachments';
+
+// Standard-Zielordner in der Cloud für gespeicherte E-Mail-PDFs
+$config['webdav_files_pdf_folder'] = '/Mail/PDF';
+
+// Standard-Dateinamensmuster für E-Mail-PDFs.
+// Platzhalter: %Y %m %d %H %M und %subject%
+$config['webdav_files_pdf_filename'] = '%Y_%m_%d eMail # %subject%';
+
+// Optional: Pfad zu wkhtmltopdf für hochwertige HTML-zu-PDF-Konvertierung.
+// Wenn leer oder nicht ausführbar, wird ein eingebauter Text-PDF-Generator
+// verwendet (immer verfügbar, keine Abhängigkeiten).
+//   $config['webdav_files_wkhtmltopdf'] = '/usr/bin/wkhtmltopdf';
+$config['webdav_files_wkhtmltopdf'] = '';
