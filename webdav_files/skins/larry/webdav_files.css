@@ -46,7 +46,7 @@ a.button.webdav-files.save-attachments {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.wdf-breadcrumb a { color: ##525252; text-decoration: none; }
+.wdf-breadcrumb a { color: #525252; text-decoration: none; }
 .wdf-breadcrumb a:hover { text-decoration: underline; }
 .wdf-newfolder { cursor: pointer; }
 
@@ -73,7 +73,7 @@ a.button.webdav-files.save-attachments {
 .wdf-item.selected .wdf-meta { color: #e0e0e0; }
 .wdf-icon { flex: 0 0 18px; width: 18px; height: 18px; display: inline-block; background-color: #5a6b7b; }
 .wdf-item.selected .wdf-icon { background-color: #fff; }
-.wdf-folder .wdf-icon, .wdf-folder-up .wdf-icon { background-color: #e8b339; }
+.wdf-folder .wdf-icon, .wdf-folder-up .wdf-icon { background-color: #666666; }
 .wdf-item.selected.wdf-folder .wdf-icon, .wdf-item.selected.wdf-folder-up .wdf-icon { background-color: #fff; }
 .wdf-folder .wdf-icon {
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 6a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2z'/%3E%3C/svg%3E") no-repeat center / contain;

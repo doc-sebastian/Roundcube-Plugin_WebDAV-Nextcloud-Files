@@ -149,7 +149,7 @@ a.button.webdav-files.save-pdf:before {
 }
 .wdf-folder .wdf-icon,
 .wdf-folder-up .wdf-icon {
-    background-color: #e6a817;
+    background-color: #666666;
 }
 .wdf-item.selected.wdf-folder .wdf-icon,
 .wdf-item.selected.wdf-folder-up .wdf-icon {
